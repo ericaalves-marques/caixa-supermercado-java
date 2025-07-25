@@ -1,11 +1,10 @@
 # 🧾 Caixa de Supermercado – Java (Console)
 
-Projeto simples feito em Java puro, simulando um **caixa de supermercado** operado pelo terminal (console). Desenvolvido como exercício prático durante os estudos de Java com foco em reforçar lógica de programação e uso de classes.
+Projeto em Java puro que simula um caixa de supermercado operado pelo terminal. Permite adicionar produtos ao carrinho com quantidade, remover itens e gerar um cupom fiscal ao final. Desenvolvido como exercício prático durante os estudos de Java com foco em lógica de programação, orientação a objetos e manipulação de entrada via console.
 
 ---
 
 ## 💻 Tecnologias usadas
-
 - Java 21
 - Eclipse IDE
 - Git & GitHub
@@ -14,22 +13,30 @@ Projeto simples feito em Java puro, simulando um **caixa de supermercado** opera
 
 ## 📦 Funcionalidades
 
-- Lista fixa de produtos com código, nome e preço
-- Entrada de produtos no carrinho via código digitado
+- Menu interativo no console
+- Lista fixa de produtos (com código, nome e preço)
+- Adição de produtos ao carrinho com quantidade escolhida
+- Remoção de produtos do carrinho pelo código
 - Cálculo do valor total da compra
 - Geração de cupom fiscal no console
 
 ---
 
-## 📸 Exemplo de uso
+## 🛒 Exemplo de uso
 
-```bash
-Digite o código do produto (001, 002, 003) ou 'fim' para encerrar:
+```text
+--- Menu ---
+1. Adicionar produto
+2. Remover produto
+3. Ver carrinho
+4. Finalizar compra
+Escolha uma opção: 
+1
+Digite o código do produto (001, 002, 003): 
 001
-003
-fim
+Digite a quantidade: 
+2
 
---- CUPOM FISCAL ---
-Arroz - R$ 17.99
-Macarrão - R$ 3.29
-Total: R$ 21.28
+--- Carrinho ---
+Arroz x2 - R$ 35.98
+Total até agora: R$ 35.98
