@@ -15,24 +15,47 @@ public class Principal {
 		boolean comprando = true;
 		
 		while (comprando) {
-			System.out.println("Digite o código do produto (001, 002, 003) ou 'fim' para encerrar:");
-			String codigo = sc.nextLine();
+			System.out.println("\n--- Menu ---");
+			System.out.println("1. Adicionar produto");
+			System.out.println("2. Remover produto");
+			System.out.println("3. Ver carrinho");
+			System.out.println("4. Finalizar compra");
+			System.out.println("Escolha uma opção: ");
+			String opcao = sc.nextLine();
 			
-			switch (codigo) {
-			case "001":
-				carrinho.adicionarProduto(p1);
+			switch (opcao) {
+			case "1":
+				System.out.println("Digite o código do produto (001, 002, 003): ");
+				String codigoAdd = sc.nextLine();
+				
+				Produto produtoSelecionado = null;
+				if (codigoAdd.equals("001")) produtoSelecionado = p1;
+				else if (codigoAdd.equals("002")) produtoSelecionado = p2;
+				else if (codigoAdd.equals("003")) produtoSelecionado = p3;
+				
+				if (produtoSelecionado != null) {
+					System.out.println("Digite a quantidade: ");
+					int qdt = Integer.parseInt(sc.nextLine());
+					carrinho.adicionarProduto(produtoSelecionado, qdt);
+				} else {
+					System.out.println("Produto não encontrado.");
+				}
 				break;
-			case "002":
-				carrinho.adicionarProduto(p2);
+			case "2":
+				System.out.println("Digite o código do produto para remover: ");
+				String codigoRemover = sc.nextLine();
+				carrinho.removerProduto(codigoRemover);
 				break;
-			case "003":
-				carrinho.adicionarProduto(p3);
+			case "3":
+				System.out.println("\n--- Carrinho ---");
+				carrinho.listarProdutos();
+				System.out.printf("Total até agora: R$ %.2f\n", carrinho.calcularTotal());
 				break;
-			case "fim":
+			case "4":
 				comprando = false;
 				break;
 			default:
-				System.out.println("Código inválido.");
+				System.out.println("Opção inválida.");
 			}
 		}
 		System.out.println("\n--- Cupom Fiscal ---");

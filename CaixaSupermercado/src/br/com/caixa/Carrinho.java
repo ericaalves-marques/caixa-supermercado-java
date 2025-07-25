@@ -3,22 +3,25 @@ package br.com.caixa;
 import java.util.ArrayList;
 
 public class Carrinho {
-    private ArrayList<Produto> produtos = new ArrayList<>();
+    private ArrayList<ItemCarrinho> itens = new ArrayList<>();
 
-    public void adicionarProduto(Produto p) {
-        produtos.add(p);
+    public void adicionarProduto(Produto produto, int quantidade) {
+        itens.add(new ItemCarrinho(produto, quantidade));
+    }
+    public void removerProduto(String codigo) {
+    	itens.removeIf(item -> item.getProduto().getCodigo().equals(codigo));
     }
 
     public void listarProdutos() {
-        for (Produto p : produtos) {
-            System.out.println(p);
+        for (ItemCarrinho item : itens) {
+            System.out.println(item);
         }
     }
 
     public double calcularTotal() {
         double total = 0;
-        for (Produto p : produtos) {
-            total += p.getPreco();
+        for (ItemCarrinho item : itens) {
+            total += item.getSubtotal();
         }
         return total;
     }
